@@ -8,10 +8,10 @@ io.on('connection', function(socket){
 	 var port=socket.request.connection.remotePort;
 	console.log('Connection to '+address+' : '+port+' client established');
   socket.on('message', function(msg){
-    io.emit('message', address+' : 'msg);
+    io.emit('message', address+' : '+port+' : '+msg);
   });
   socket.on('disconnect',function(){
-        console.log('Server has '+address+' : '+port+'disconnected');
+        console.log('Server has '+address+' : '+port+' disconnected');
     });
 });
 
